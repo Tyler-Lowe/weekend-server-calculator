@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/foundation.css">
+    <link rel="stylesheet" href="styles/app.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Server Side Calculator</h1>
+    <div class="grid-container">
+        <div class="grid-x text-center">
+            <div class="calculator-wrapper cell small-12 large-6 grid-x align-center">
+                <div id="display-calculation" class="small-12 display-container">0</div>
+                <div onclick="addToDisplay(event)" class="top-row-container small-3">AC</div>
+                <div onclick="addToDisplay(event)" class="top-row-container small-3">+/-</div>
+                <div onclick="addToDisplay(event)" class="top-row-container small-3">%</div>
+                <div onclick="addToDisplay(event)" class="operation-column small-3">&#247;</div>
+                <div onclick="addToDisplay(event)" class="number-container small-3">7</div>
+                <div onclick="addToDisplay(event)" class="number-container small-3">8</div>
+                <div onclick="addToDisplay(event)" class="number-container small-3">9</div>
+                <div onclick="addToDisplay(event)" class="operation-column small-3">x</div>
+                <div onclick="addToDisplay(event)" class="number-container small-3">4</div>
+                <div onclick="addToDisplay(event)" class="number-container small-3">5</div>
+                <div onclick="addToDisplay(event)" class="number-container small-3">6</div>
+                <div onclick="addToDisplay(event)" class="operation-column small-3">-</div>
+                <div onclick="addToDisplay(event)" class="number-container small-3">1</div>
+                <div onclick="addToDisplay(event)" class="number-container small-3">2</div>
+                <div onclick="addToDisplay(event)" class="number-container small-3">3</div>
+                <div onclick="addToDisplay(event)" class="operation-column small-3">+</div>
+                <div onclick="addToDisplay(event)" class="number-container-zero small-6">0</div>
+                <div onclick="addToDisplay(event)" class="number-container small-3">.</div>
+                <div onclick="addToDisplay(event)" class="operation-column small-3">=</div>
+            </div>
+            <div class="history-display cell large-6">
+                <h2>History</h2>
+                <div id="history-content"></div>
+            </div>
+        </div>
+</div>
+    <script src="scripts/client.js"></script>
+</body>
+</html>
