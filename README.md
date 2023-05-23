@@ -1,9 +1,14 @@
-# Project Name
+# Server Calculator
+Duration: Weekend Project
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
 
 ## Description
 
-Your project description goes here. What problem did you solve? How did you solve it?
+This project was to get familiar with working on the server side. All inputs and calculations were done on the server and returned to the client to be displayed.
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+## Screen Shot
+
+
+## Usage
+2-input calculator used form addition, subtraction, multiplication, and division.
+
