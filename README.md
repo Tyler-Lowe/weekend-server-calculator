@@ -7,6 +7,7 @@ Duration: Weekend Project
 This project was to get familiar with working on the server side. All inputs and calculations were done on the server and returned to the client to be displayed.
 
 ## Screen Shot
+![Screen Shot 2023-05-23 at 8 17 16 AM](https://github.com/Tyler-Lowe/weekend-server-calculator/assets/68433962/65858a8f-2af0-4dd8-816f-ead4c5a1ca8a)
 
 
 ## Usage
