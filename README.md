@@ -12,5 +12,5 @@ Historical calculations are displayed on the right side of the screen by getting
 
 
 ## Usage
-2-input calculator used form addition, subtraction, multiplication, and division.
+2-input calculator used for addition, subtraction, multiplication, and division.
 
