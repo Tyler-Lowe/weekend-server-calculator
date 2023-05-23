@@ -1,7 +1,7 @@
 const express = require('express');
 
 const app = express();
-const PORT = 5001;
+const PORT = 5000;
 
 app.use(express.static('server/public'));
 app.use(express.json());
@@ -12,7 +12,9 @@ app.listen(PORT, () => {
 })
 
 let equationArr = [];
-
+let inputArr = [];
+let finalAnswer = 0;
+let historyArr = [];
 
 app.post('/answer', (req, res) => {
     console.log('Adding New Problem To Solve', req.body);
@@ -21,7 +23,16 @@ app.post('/answer', (req, res) => {
     res.sendStatus(201);
 })
 
-let inputArr = [];
+app.get('/answer', function(req, res) {
+    console.log('GET Request for answer');
+    res.send(201, finalAnswer);
+})
+
+app.get('/history', function(req, res) {
+    // console.log('GET Request for answer');
+    console.log('history ehre',historyArr);
+    res.send(201, historyArr);
+})
 
 function parseCalculation(arr){
     let string = arr[0].calculation;
@@ -55,41 +66,57 @@ function parseCalculation(arr){
     perfromCalculation(inputArr);
 }
 
-['7', '+', '7']
-
 function perfromCalculation(arr) {
     let total = 0;
-    let value = 0;
-    console.log(arr);
+    let value = '';
+    let num1 = 0;
+    let num2 = 0;
+    console.log('Is it here',arr);
+    historyArr.push(arr);
     let counter = 0;
-    for (const item of arr) {
-        if(counter === 0){
-            total = Number(item);
-            } else if(item === '+') {
-                total += Number(value);
-                value = 0;
-            } else if(item === '-') {
-                total -= Number(value);
-                value = 0;
-            } else if(item === '*') {
-                total -= Number(value);
-                value = 0;
-            } else if(item === '/') {
-                total /= valNumber(value);
-                value = 0;
-            } else if(item === '%') {
-                total -= Number(value);
-                value = 0;
-            } else if (item === '=') {
-                break;
-            } else {
-                total += Number(item);
-                console.log(value);
-            }
-            counter++;
-    }
 
-    console.log(total);
+    for (const item of arr) {
+        if((Number.isInteger(Number(item)) && (counter === 0)) || ((item.includes('.')) && (counter === 0))) {
+            num1 = Number(item)
+            counter ++;
+        } else if (counter === 1 && (item === '+')) {
+            value = '+';
+            counter ++;
+        } else if (counter === 1 && (item === '-')) {
+            value = '-';
+            counter ++;
+        } else if (counter === 1 && (item === '/')) {
+            value = '/';
+            counter ++;
+        } else if (counter === 1 && (item === 'x')) {
+            value = 'x';
+            counter ++;
+        } else if ((item === '=')) {
+            break;
+        } else if (counter === 2 && (value === '+')) {
+            num2 = Number(item)
+            total += (num1 + num2)
+            counter = 0;
+        }  else if (counter === 2 && (value === '-')) {
+            num2 = Number(item)
+            total += (num1 - num2)
+            counter = 0;
+        }  else if (counter === 2 && (value === '/')) {
+            num2 = Number(item)
+            total += (num1 / num2)
+            counter = 0;
+        }  else if (counter === 2 && (value === 'x')) {
+            num2 = Number(item)
+            console.log('Am I here', num1, num2);
+            total += (num1 * num2)
+            counter = 0;
+        } 
+
+    }
+    historyArr[0].push(total);
+    finalAnswer = total;
+    inputArr = [];
+    equationArr = [];
 }
 
 
