@@ -86,16 +86,19 @@ function getHistory() {
 }
 
 function displayHistory(answer){
-    let historyAnswer = answer.toString().replaceAll(',', ' ')
+    console.log(answer);
     let contentDiv = document.querySelector('#history-content');
-    contentDiv.innerHTML += `<p>${historyAnswer}</p>`
-    console.log('did this fire?');
+    contentDiv.innerHTML = ``;
+    for (const equation of answer) {
+        contentDiv.innerHTML += `<p>${equation.toString().replaceAll(',', ' ')}</p>`
+    }
 }
 
 function allClear(event) {
     console.log(event.target.parentElement.querySelector('#display-calculation').innerHTML = '0')
     calculationString = '';
-
+    let contentDiv = document.querySelector('#history-content');
+    contentDiv.innerHTML += ``
     
 }
 

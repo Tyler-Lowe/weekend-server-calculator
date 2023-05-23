@@ -15,6 +15,7 @@ let equationArr = [];
 let inputArr = [];
 let finalAnswer = 0;
 let historyArr = [];
+let historyCounter = 0;
 
 app.post('/answer', (req, res) => {
     console.log('Adding New Problem To Solve', req.body);
@@ -113,7 +114,8 @@ function perfromCalculation(arr) {
         } 
 
     }
-    historyArr[0].push(total);
+    console.log('asdfasdf',historyArr[historyCounter].push(total));
+    historyCounter ++;
     finalAnswer = total;
     inputArr = [];
     equationArr = [];
